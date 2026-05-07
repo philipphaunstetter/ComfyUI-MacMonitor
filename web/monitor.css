@@ -1,0 +1,94 @@
+.macmon-bar {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 10px;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+  font-size: 12px;
+  line-height: 1.2;
+  color: var(--input-text, #e6e6e6);
+  background: var(--comfy-menu-bg, rgba(28, 28, 30, 0.92));
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  user-select: none;
+  pointer-events: auto;
+  transition: opacity 0.2s ease;
+}
+
+.macmon-pos-top    { top: 6px; }
+.macmon-pos-bottom { bottom: 6px; top: auto; }
+
+.macmon-hidden { display: none !important; }
+
+.macmon-cell {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 2px 4px;
+  border-radius: 4px;
+  white-space: nowrap;
+  cursor: default;
+}
+
+.macmon-label {
+  opacity: 0.6;
+  font-weight: 500;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.macmon-value {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+.macmon-sep {
+  width: 1px;
+  height: 14px;
+  background: var(--border-color, rgba(255, 255, 255, 0.12));
+}
+
+.macmon-spacer { width: 4px; }
+
+.macmon-toggle {
+  background: transparent;
+  border: none;
+  color: inherit;
+  opacity: 0.5;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+}
+.macmon-toggle:hover { opacity: 1; }
+
+/* severity */
+.macmon-state-warn .macmon-value { color: #ffbf3d; }
+.macmon-state-crit .macmon-value { color: #ff5d55; }
+.macmon-state-warn { background: rgba(255, 191, 61, 0.08); }
+.macmon-state-crit { background: rgba(255, 93, 85, 0.10); }
+
+/* generating */
+.macmon-running [data-cell="gen"] .macmon-value {
+  color: #4ade80;
+  animation: macmon-pulse 1.6s ease-in-out infinite;
+}
+@keyframes macmon-pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.55; }
+}
+
+/* stale (poll failed) */
+.macmon-stale { opacity: 0.45; }
+
+/* compact */
+.macmon-compact .macmon-label { display: none; }
+.macmon-compact { gap: 4px; padding: 3px 8px; font-size: 11px; }
