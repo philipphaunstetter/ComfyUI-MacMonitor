@@ -29,10 +29,10 @@ dependencies = [
 gpu = ["pyobjc-framework-Cocoa"]
 
 [project.urls]
-Repository = "https://github.com/newflow/comfyui-macmonitor"
-Issues = "https://github.com/newflow/comfyui-macmonitor/issues"
+Repository = "https://github.com/philipphaunstetter/ComfyUI-MacMonitor"
+Issues = "https://github.com/philipphaunstetter/ComfyUI-MacMonitor/issues"
 
 [tool.comfy]
-PublisherId = "newflow"
+PublisherId = "philipphaunstetter"
 DisplayName = "MacMonitor"
 Icon = ""
